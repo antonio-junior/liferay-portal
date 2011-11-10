@@ -48,6 +48,6 @@ public String _serialize(Object value, String javaScriptAttributes) {
 	stringTransformer.setJavaScriptAttributes(
 		Arrays.asList(StringUtil.split(javaScriptAttributes)));
 
-	return JSONFactoryUtil.looseSerialize(value, stringTransformer, String.class);
+	return JSONFactoryUtil.looseSerializeDeep(value, stringTransformer, String.class);
 }
 %>
