@@ -106,7 +106,8 @@ public class JSONFactoryUtil {
 	public static String looseSerializeDeep(
 		Object object, JSONTransformer jsonTransformer, Class<?> clazz) {
 
-		return getJSONFactory().looseSerializeDeep(object, jsonTransformer, clazz);
+		return getJSONFactory().looseSerializeDeep(
+			object, jsonTransformer, clazz);
 	}
 
 	public static String serialize(Object object) {
