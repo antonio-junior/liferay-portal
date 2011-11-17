@@ -15909,4 +15909,700 @@ after rendering is complete.
 		</attribute>
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
+	<tag>
+		<name>paginator</name>
+		<tag-class>com.liferay.taglib.aui.PaginatorTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description><![CDATA[If true the Paginator will be always visible, even when the number
+	of pages is 0. To hide the paginator controls automatically when
+	there is no pages to display use <code>false</code>.<!--{"event":false,"inputType":"boolean","outputType":"boolean","required":false,"defaultValue":"true"}-->]]></description>
+			<name>alwaysVisible</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The Paginator controls UI could be displayed in more than one
+	container (i.e., in the header and footer of a list). Pass a
+	<a href="NodeList.html">NodeList</a> or a selector to grab the
+	containers.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>containers</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Flag indicating whether or not this object
+	has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boolean","outputType":"boolean","required":false,"defaultValue":"false"}-->]]></description>
+			<name>destroyed</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The <a href="Node.html">Node</a> or template to be used as the
+	first link element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>firstPageLink</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The label used as content of the
+	<a href="Paginator.html#config_firstPageLink">firstPageLink</a> element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"first"}-->]]></description>
+			<name>firstPageLinkLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Flag indicating whether or not this object
+	has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolean","outputType":"boolean","required":false,"defaultValue":"false"}-->]]></description>
+			<name>initialized</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The <a href="Node.html">Node</a> or template to be used as the
+	last link element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>lastPageLink</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The label used as content of the
+	<a href="Paginator.html#config_lastPageLink">lastPageLink</a> element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"last"}-->]]></description>
+			<name>lastPageLinkLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The max number of page links to be displayed. If lower than the
+	total number of pages they are still navigable using next and prev
+	links.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Number","required":false,"defaultValue":"10"}-->]]></description>
+			<name>maxPageLinks</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The <a href="Node.html">Node</a> or template to be used as the
+	next link element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>nextPageLink</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The label used as content of the
+	<a href="Paginator.html#config_nextPageLink">nextPageLink</a> element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"next &gt;"}-->]]></description>
+			<name>nextPageLinkLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Page to display on initial paint.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Number","required":false,"defaultValue":"1"}-->]]></description>
+			<name>paginatorPage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[HTML Template for the page links container.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>pageContainerTemplate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[<p>Function which set the content of the each page element. The passed
+	function receive as arguments the reference for the page element
+	node, the page number and the index of the page element.</p>
+	Example:
+	<pre><code>function(pageEl, pageNumber, index) {
+	pageEl.html(pageNumber);
+	}</code></pre><!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>pageLinkContent</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[HTML Template for the link elements.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>pageLinkTemplate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Node element to display the page report (i.e., (1 of 100)).<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>pageReportEl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Template for the
+	<a href="Paginator.html#config_pageReportEl">pageReportEl</a> content.
+	Note the placeholders for the page {page} and the total pages
+	{totalPages}.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"({page} of {totalPages})"}-->]]></description>
+			<name>pageReportLabelTemplate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The <a href="Node.html">Node</a> or template to be used as the
+	prev link element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>prevPageLink</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The label used as content of the
+	<a href="Paginator.html#config_prevPageLink">prevPageLink</a> element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"&lt; prev"}-->]]></description>
+			<name>prevPageLinkLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Number of records constituting a "page".<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Number","required":false,"defaultValue":"1"}-->]]></description>
+			<name>rowsPerPage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Node element to display the
+	<a href="Paginator.html#config_rowsPerPage">rowsPerPage</a>.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>rowsPerPageEl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Array to be displayed on the generated HTML Select element with the
+	<a href="Paginator.html#config_rowsPerPage">rowsPerPage</a>
+	information. (i.e., [1,3,5,7], will display these values on the
+	select)<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
+			<name>rowsPerPageOptions</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Generates information to the <code>changeRequest</code> event. See
+	<a href="Paginator.html#method_changeRequest">changeRequest</a>.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.HashMap","required":false,"defaultValue":"{}"}-->]]></description>
+			<name>state</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Template used to render controls. The string will be used as
+	innerHTML on all specified container nodes. Bracketed keys (e.g.
+	{pageLinks}) in the string will be replaced with an instance of the
+	so named ui component.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"{FirstPageLink} {PrevPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {Total} {RowsPerPageSelect}"}-->]]></description>
+			<name>template</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Total number of records to paginate through.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Number","required":false,"defaultValue":"0"}-->]]></description>
+			<name>total</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Node element to display the total information.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
+			<name>totalEl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[The label markup to the total information.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"(Total {total})"}-->]]></description>
+			<name>totalLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Number of pages. Calculated based on the
+	<a href="Paginator.html#config_total">total</a> divided by the
+	<a href="Paginator.html#config_rowsPerPage">rowsPerPage</a>.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Number","required":false,"defaultValue":"0"}-->]]></description>
+			<name>totalPages</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'alwaysVisible' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterAlwaysVisibleChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'containers' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterContainersChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[<p>
+	Lifecycle event for the destroy phase,
+	fired prior to destruction. Invoking the preventDefault
+	method on the event object provided to subscribers will
+	prevent destruction from proceeding.
+	</p>
+	<p>
+	Subscribers to the "after" moment of this event, will be notified
+	after destruction is complete (and as a result cannot prevent
+	destruction).
+	</p><!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterDestroy</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'destroyed' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterDestroyedChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'firstPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterFirstPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'firstPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterFirstPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[<p>
+	Lifecycle event for the init phase, fired prior to initialization.
+	Invoking the preventDefault() method on the event object provided
+	to subscribers will prevent initialization from occuring.
+	</p>
+	<p>
+	Subscribers to the "after" momemt of this event, will be notified
+	after initialization of the object is complete (and therefore
+	cannot prevent initialization).
+	</p><!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterInit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'initialized' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterInitializedChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'lastPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterLastPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'lastPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterLastPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'maxPageLinks' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterMaxPageLinksChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'nextPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterNextPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'nextPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterNextPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'page' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPageChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageContainerTemplate' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPageContainerTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageLinkContent' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPageLinkContentChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageLinkTemplate' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPageLinkTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageReportEl' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPageReportElChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageReportLabelTemplate' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPageReportLabelTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'prevPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPrevPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'prevPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterPrevPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'rowsPerPage' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterRowsPerPageChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'rowsPerPageEl' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterRowsPerPageElChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'rowsPerPageOptions' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterRowsPerPageOptionsChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'state' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterStateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'template' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'total' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterTotalChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'totalEl' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterTotalElChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'totalLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterTotalLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'totalPages' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>afterTotalPagesChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'alwaysVisible' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onAlwaysVisibleChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'containers' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onContainersChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[<p>
+	Lifecycle event for the destroy phase,
+	fired prior to destruction. Invoking the preventDefault
+	method on the event object provided to subscribers will
+	prevent destruction from proceeding.
+	</p>
+	<p>
+	Subscribers to the "after" moment of this event, will be notified
+	after destruction is complete (and as a result cannot prevent
+	destruction).
+	</p><!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onDestroy</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'destroyed' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onDestroyedChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'firstPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onFirstPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'firstPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onFirstPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[<p>
+	Lifecycle event for the init phase, fired prior to initialization.
+	Invoking the preventDefault() method on the event object provided
+	to subscribers will prevent initialization from occuring.
+	</p>
+	<p>
+	Subscribers to the "after" momemt of this event, will be notified
+	after initialization of the object is complete (and therefore
+	cannot prevent initialization).
+	</p><!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onInit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'initialized' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onInitializedChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'lastPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onLastPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'lastPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onLastPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'maxPageLinks' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onMaxPageLinksChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'nextPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onNextPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'nextPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onNextPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'page' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPageChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageContainerTemplate' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPageContainerTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageLinkContent' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPageLinkContentChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageLinkTemplate' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPageLinkTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageReportEl' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPageReportElChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'pageReportLabelTemplate' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPageReportLabelTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'prevPageLink' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPrevPageLinkChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'prevPageLinkLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onPrevPageLinkLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'rowsPerPage' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onRowsPerPageChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'rowsPerPageEl' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onRowsPerPageElChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'rowsPerPageOptions' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onRowsPerPageOptionsChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'state' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onStateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'template' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onTemplateChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'total' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onTotalChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'totalEl' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onTotalElChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'totalLabel' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onTotalLabelChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fires when the value for the configuration attribute 'totalPages' is changed. You can listen for the event using the <a href="Attribute.html#method_on">on</a> method if you wish to be notified before the attribute's value has changed, or using the <a href="Event.Target.html#method_after">after</a> method if you wish to be notified after the attribute's value has changed.<!--{"event":true,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
+			<name>onTotalPagesChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
 </taglib>
