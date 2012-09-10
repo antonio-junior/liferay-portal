@@ -24,6 +24,10 @@ import com.liferay.portal.verify.VerifyException;
  */
 public class StartupHelperUtil {
 
+	public static void checkBuildNumber(int buildNumber) {
+		getStartupHelper().checkBuildNumber(buildNumber);
+	}
+
 	public static StartupHelper getStartupHelper() {
 		return _startupHelper;
 	}
@@ -44,8 +48,8 @@ public class StartupHelperUtil {
 		getStartupHelper().updateIndexes();
 	}
 
-	public static void upgradeProcess(int buildNumber) throws UpgradeException {
-		getStartupHelper().upgradeProcess(buildNumber);
+	public static void upgradeProcess() throws UpgradeException {
+		getStartupHelper().upgradeProcess();
 	}
 
 	public static void verifyProcess(boolean verified) throws VerifyException {

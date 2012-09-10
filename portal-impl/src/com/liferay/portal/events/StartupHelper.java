@@ -23,9 +23,11 @@ import com.liferay.portal.kernel.upgrade.UpgradeException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ReleaseInfo;
+import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.security.pacl.PACLClassLoaderUtil;
+import com.liferay.portal.service.ReleaseLocalServiceUtil;
 import com.liferay.portal.upgrade.UpgradeProcessUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.verify.VerifyException;
@@ -67,6 +69,28 @@ public class StartupHelper {
 		}
 	}
 
+	public void checkBuildNumber(int buildNumber) {
+		if (buildNumber > ReleaseInfo.getParentBuildNumber()) {
+			StringBundler sb = new StringBundler(6);
+
+			sb.append("Attempting to deploy an older Liferay Portal version. ");
+			sb.append("Current build version is ");
+			sb.append(buildNumber);
+			sb.append(" and attempting to deploy version ");
+			sb.append(ReleaseInfo.getParentBuildNumber());
+			sb.append(".");
+
+			throw new IllegalStateException(sb.toString());
+		}
+		else if (buildNumber < ReleaseInfo.RELEASE_5_2_3_BUILD_NUMBER) {
+			String msg = "You must first upgrade to Liferay Portal 5.2.3";
+
+			System.out.println(msg);
+
+			throw new RuntimeException(msg);
+		}
+	}
+
 	public boolean isUpgraded() {
 		return _upgraded;
 	}
@@ -97,39 +121,49 @@ public class StartupHelper {
 		}
 	}
 
-	public void upgradeProcess(int buildNumber) throws UpgradeException {
-		if (buildNumber == ReleaseInfo.getParentBuildNumber()) {
-			if (_log.isDebugEnabled()) {
-				_log.debug(
-					"Skipping upgrade process from " + buildNumber + " to " +
-						ReleaseInfo.getParentBuildNumber());
-			}
+	public void upgradeProcess() throws UpgradeException {
+		try {
+			int buildNumber = ReleaseLocalServiceUtil.getBuildNumberOrCreate();
 
-			return;
-		}
+			checkBuildNumber(buildNumber);
 
-		String[] upgradeProcessClassNames = getUpgradeProcessClassNames(
-			PropsKeys.UPGRADE_PROCESSES);
-
-		if (upgradeProcessClassNames.length == 0) {
-			upgradeProcessClassNames = getUpgradeProcessClassNames(
-				PropsKeys.UPGRADE_PROCESSES + StringPool.PERIOD + buildNumber);
-
-			if (upgradeProcessClassNames.length == 0) {
-				if (_log.isInfoEnabled()) {
-					_log.info(
-						"Upgrading from " + buildNumber + " to " +
-							ReleaseInfo.getParentBuildNumber() + " is not " +
-								"supported");
+			if (buildNumber == ReleaseInfo.getParentBuildNumber()) {
+				if (_log.isDebugEnabled()) {
+					_log.debug(
+						"Skipping upgrade process from " + buildNumber +
+							" to " + ReleaseInfo.getParentBuildNumber());
 				}
 
-				System.exit(0);
+				return;
 			}
-		}
 
-		_upgraded = UpgradeProcessUtil.upgradeProcess(
-			buildNumber, upgradeProcessClassNames,
-			PACLClassLoaderUtil.getPortalClassLoader());
+			String[] upgradeProcessClassNames = getUpgradeProcessClassNames(
+				PropsKeys.UPGRADE_PROCESSES);
+
+			if (upgradeProcessClassNames.length == 0) {
+				upgradeProcessClassNames = getUpgradeProcessClassNames(
+					PropsKeys.UPGRADE_PROCESSES + StringPool.PERIOD +
+					buildNumber);
+
+				if (upgradeProcessClassNames.length == 0) {
+					if (_log.isInfoEnabled()) {
+						_log.info(
+							"Upgrading from " + buildNumber + " to " +
+								ReleaseInfo.getParentBuildNumber() + " is " +
+									"not supported");
+					}
+
+					System.exit(0);
+				}
+			}
+
+			_upgraded = UpgradeProcessUtil.upgradeProcess(
+				buildNumber, upgradeProcessClassNames,
+				PACLClassLoaderUtil.getPortalClassLoader());
+		}
+		catch (Exception e) {
+			throw new UpgradeException(e);
+		}
 	}
 
 	public void verifyProcess(boolean verified) throws VerifyException {
