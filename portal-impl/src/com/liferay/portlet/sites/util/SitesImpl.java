@@ -48,7 +48,9 @@ import com.liferay.portal.model.Lock;
 import com.liferay.portal.model.Organization;
 import com.liferay.portal.model.OrganizationConstants;
 import com.liferay.portal.model.PortletConstants;
+import com.liferay.portal.model.ResourceAction;
 import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.ResourcePermission;
 import com.liferay.portal.model.Role;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.model.User;
@@ -70,6 +72,7 @@ import com.liferay.portal.service.LayoutSetServiceUtil;
 import com.liferay.portal.service.LockLocalServiceUtil;
 import com.liferay.portal.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
+import com.liferay.portal.service.ResourceActionLocalServiceUtil;
 import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
 import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
@@ -496,6 +499,29 @@ public class SitesImpl implements Sites {
 
 			if (firstLayout != null) {
 				newPlid = firstLayout.getPlid();
+
+				Role role = RoleLocalServiceUtil.getRole(
+					firstLayout.getCompanyId(), RoleConstants.GUEST);
+
+				ResourceAction resourceAction =
+					ResourceActionLocalServiceUtil.getResourceAction(
+						Layout.class.getName(), ActionKeys.VIEW);
+
+				ResourcePermission resourcePermission =
+					ResourcePermissionLocalServiceUtil.getResourcePermission(
+						firstLayout.getCompanyId(), Layout.class.getName(),
+						ResourceConstants.SCOPE_INDIVIDUAL,
+						String.valueOf(firstLayout.getPlid()),
+						role.getRoleId());
+
+				long actionIds =
+					(resourcePermission.getActionIds() |
+						resourceAction.getBitwiseValue());
+
+				resourcePermission.setActionIds(actionIds);
+
+				ResourcePermissionLocalServiceUtil.updateResourcePermission(
+					resourcePermission);
 			}
 		}
 

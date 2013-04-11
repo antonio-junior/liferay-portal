@@ -345,6 +345,16 @@ definePermissionsURL.setRefererPlid(plid);
 
 				List<String> guestUnsupportedActions = ResourceActionsUtil.getResourceGuestUnsupportedActions(portletResource, modelResource);
 
+				if (selLayout != null) {
+					LayoutSet layoutSet = selLayout.getLayoutSet();
+
+					if (group.isGuest() && (layoutSet.getPageCount() == 1)) {
+						guestUnsupportedActions = new ArrayList<String>(guestUnsupportedActions);
+
+						guestUnsupportedActions.add(ActionKeys.VIEW);
+					}
+				}
+
 				for (String action : actions) {
 					boolean checked = false;
 					boolean disabled = false;
